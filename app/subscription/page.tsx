@@ -1,9 +1,12 @@
-import React from 'react';
+import { PricingTable } from "@clerk/nextjs";
+import React from "react";
 
 function Page() {
-    return (
-        <div></div>
-    );
+  return (
+    <div>
+      <PricingTable />
+    </div>
+  );
 }
 
 export default Page;
