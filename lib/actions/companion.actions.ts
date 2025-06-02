@@ -88,7 +88,7 @@ export const getCompanion = async (id: string) => {
         .select()
         .eq("user_id",userId)
         .eq("companion_id",id)
-        .single()
+        
         
     if(bookmarkError) throw new Error(bookmarkError.message)
     const bookmark = bookmarks[0]
@@ -181,7 +181,7 @@ export const newSessionPermission = async () => {
   if(has({feature:'10_conversations_month'})){
     limit = 10
   }else{
-    return false
+    return true
   }
   
   // Calculate date one month ago
