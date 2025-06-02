@@ -155,7 +155,7 @@ export const getUserCompanions = async (userId: string) => {
 }
 
 export const newCompanionPermission = async () => {
-  const {userId,has} = await auth()
+  const { userId ,has} = await auth()
   const supabase = createSupabaseClient()
   let limit = 0
   if(has({plan:'pro'})){
@@ -216,7 +216,7 @@ export const addBookmark = async (companionId:string,path:string) => {
 }
 
 export const removeBookmark = async (companionId:string,path:string) => {
-  const {userId} = await auth()
+  const { userId } = await auth()
   const supabase = createSupabaseClient()
   const {data,error} = await supabase.from('bookmarks').delete().eq('companion_id',companionId).eq('user_id',userId)
   if(error) throw new Error(error.message)
@@ -225,7 +225,7 @@ export const removeBookmark = async (companionId:string,path:string) => {
 }
 
 export const getBookmarks = async () => {
-  const {userId} = await auth()
+  const { userId } = await auth()
   const supabase = createSupabaseClient()
   const {data,error} = await supabase.from('bookmarks').select(`companions:companion_id (*)`).eq('user_id',userId)
   if(error) throw new Error(error.message)
